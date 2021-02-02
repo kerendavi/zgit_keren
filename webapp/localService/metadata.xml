@@ -1,0 +1,135 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
+            xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:lang="en"
+            xmlns:sap="http://www.sap.com/Protocols/SAPData" sap:schema-version="1" Namespace="ZALTERNO_KEREN_SRV">
+            <EntityType sap:content-version="1" Name="Kreda">
+                <Key>
+                    <PropertyRef Name="Lifnr" />
+                </Key>
+                <Property Name="Sortl" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Search term" sap:unicode="false" MaxLength="10" Type="Edm.String" />
+                <Property Name="Land1" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Country" sap:unicode="false" MaxLength="3" Type="Edm.String" />
+                <Property Name="Pstlz" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Postal Code" sap:unicode="false" MaxLength="10" Type="Edm.String" />
+                <Property Name="Mcod3" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="City" sap:unicode="false" MaxLength="25" Type="Edm.String" />
+                <Property Name="Mcod1" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Name" sap:unicode="false" MaxLength="25" Type="Edm.String" />
+                <Property Name="Lifnr" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Vendor" sap:unicode="false" MaxLength="10" Nullable="false" Type="Edm.String" />
+                <Property Name="Loevm" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Deletion flag" sap:unicode="false" Type="Edm.Boolean" />
+                <NavigationProperty Name="Banks" ToRole="ToRole_Kreda_BankDetails" FromRole="FromRole_Kreda_BankDetails" Relationship="ZALTERNO_KEREN_SRV.Kreda_BankDetails" />
+                <NavigationProperty Name="Details" ToRole="ToRole_Kreda_Details" FromRole="FromRole_Kreda_Details" Relationship="ZALTERNO_KEREN_SRV.Kreda_Details" />
+                <NavigationProperty Name="Orders" ToRole="ToRole_Kreda_Mekkl" FromRole="FromRole_Kreda_Mekkl" Relationship="ZALTERNO_KEREN_SRV.Kreda_Mekkl" />
+            </EntityType>
+            <EntityType sap:content-version="1" Name="Mekkl">
+                <Key>
+                    <PropertyRef Name="Ebeln" />
+                </Key>
+                <Property Name="Lifnr" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Vendor" sap:unicode="false" MaxLength="10" Type="Edm.String" />
+                <Property Name="Ekorg" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Purchasing Org." sap:unicode="false" MaxLength="4" Type="Edm.String" />
+                <Property Name="Ekgrp" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Purch. Group" sap:unicode="false" MaxLength="3" Type="Edm.String" />
+                <Property Name="Bedat" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Document Date" sap:unicode="false" Type="Edm.DateTime" Precision="7" />
+                <Property Name="Bstyp" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Doc. Category" sap:unicode="false" MaxLength="1" Type="Edm.String" />
+                <Property Name="Bsart" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Order Type" sap:unicode="false" MaxLength="4" Type="Edm.String" />
+                <Property Name="Ebeln" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Purchasing Doc." sap:unicode="false" MaxLength="10" Nullable="false" Type="Edm.String" />
+            </EntityType>
+            <EntityType sap:content-version="1" Name="VendorDetails">
+                <Key>
+                    <PropertyRef Name="Vendor" />
+                </Key>
+                <Property Name="Vendor" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Vendor" sap:unicode="false" MaxLength="10" Nullable="false" Type="Edm.String" />
+                <Property Name="Name" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Name" sap:unicode="false" MaxLength="35" Type="Edm.String" />
+                <Property Name="Name2" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Name 2" sap:unicode="false" MaxLength="35" Type="Edm.String" />
+                <Property Name="Name3" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Name 3" sap:unicode="false" MaxLength="35" Type="Edm.String" />
+                <Property Name="Name4" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Name 4" sap:unicode="false" MaxLength="35" Type="Edm.String" />
+                <Property Name="City" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="City" sap:unicode="false" MaxLength="35" Type="Edm.String" />
+                <Property Name="District" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="District" sap:unicode="false" MaxLength="35" Type="Edm.String" />
+                <Property Name="PoBox" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="PO Box" sap:unicode="false" MaxLength="10" Type="Edm.String" />
+                <Property Name="PobxPcd" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="PO Box PCode" sap:unicode="false" MaxLength="10" Type="Edm.String" />
+                <Property Name="PostlCode" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Postal Code" sap:unicode="false" MaxLength="10" Type="Edm.String" />
+                <Property Name="Region" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Region" sap:unicode="false" MaxLength="3" Type="Edm.String" />
+                <Property Name="Street" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Street" sap:unicode="false" MaxLength="35" Type="Edm.String" />
+                <Property Name="Country" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Country" sap:unicode="false" MaxLength="3" Type="Edm.String" />
+                <Property Name="Countryiso" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="ISO code" sap:unicode="false" MaxLength="2" Type="Edm.String" />
+                <Property Name="PobxCty" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="P.O.Box city" sap:unicode="false" MaxLength="35" Type="Edm.String" />
+                <Property Name="Langu" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Language" sap:unicode="false" MaxLength="2" Type="Edm.String" />
+                <Property Name="LanguIso" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Lang. (ISO)" sap:unicode="false" MaxLength="2" Type="Edm.String" />
+                <Property Name="Telephone" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Telephone 1" sap:unicode="false" MaxLength="16" Type="Edm.String" />
+                <Property Name="Formofaddr" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Title" sap:unicode="false" MaxLength="15" Type="Edm.String" />
+                <Property Name="Telephone2" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Telephone 2" sap:unicode="false" MaxLength="16" Type="Edm.String" />
+                <Property Name="PurpCmplFlag" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="PurposeComplete Flag" sap:unicode="false" MaxLength="1" Type="Edm.String" />
+            </EntityType>
+            <EntityType sap:content-version="1" Name="BankDetails">
+                <Key>
+                    <PropertyRef Name="BankKey" />
+                </Key>
+                <Property Name="Vendor" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Vendor" sap:unicode="false" MaxLength="10" Type="Edm.String" />
+                <Property Name="BankCtry" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Bank Country" sap:unicode="false" MaxLength="3" Type="Edm.String" />
+                <Property Name="BankKey" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Bank Key" sap:unicode="false" MaxLength="15" Nullable="false" Type="Edm.String" />
+                <Property Name="BankAcct" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Bank Account" sap:unicode="false" MaxLength="18" Type="Edm.String" />
+                <Property Name="CtrlKey" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Control key" sap:unicode="false" MaxLength="2" Type="Edm.String" />
+                <Property Name="PartnerBk" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Part.bank type" sap:unicode="false" MaxLength="4" Type="Edm.String" />
+                <Property Name="CollAuth" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Collect.author." sap:unicode="false" Type="Edm.Boolean" />
+                <Property Name="BankRef" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Reference" sap:unicode="false" MaxLength="20" Type="Edm.String" />
+            </EntityType>
+            <Association sap:content-version="1" Name="Kreda_Details">
+                <End Type="ZALTERNO_KEREN_SRV.Kreda" Role="FromRole_Kreda_Details" Multiplicity="1" />
+                <End Type="ZALTERNO_KEREN_SRV.VendorDetails" Role="ToRole_Kreda_Details" Multiplicity="0..1" />
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Kreda_Details">
+                        <PropertyRef Name="Lifnr" />
+                    </Principal>
+                    <Dependent Role="ToRole_Kreda_Details">
+                        <PropertyRef Name="Vendor" />
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association sap:content-version="1" Name="Kreda_BankDetails">
+                <End Type="ZALTERNO_KEREN_SRV.Kreda" Role="FromRole_Kreda_BankDetails" Multiplicity="1" />
+                <End Type="ZALTERNO_KEREN_SRV.BankDetails" Role="ToRole_Kreda_BankDetails" Multiplicity="*" />
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Kreda_BankDetails">
+                        <PropertyRef Name="Lifnr" />
+                    </Principal>
+                    <Dependent Role="ToRole_Kreda_BankDetails">
+                        <PropertyRef Name="Vendor" />
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association sap:content-version="1" Name="Kreda_Mekkl">
+                <End Type="ZALTERNO_KEREN_SRV.Kreda" Role="FromRole_Kreda_Mekkl" Multiplicity="1" />
+                <End Type="ZALTERNO_KEREN_SRV.Mekkl" Role="ToRole_Kreda_Mekkl" Multiplicity="*" />
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Kreda_Mekkl">
+                        <PropertyRef Name="Lifnr" />
+                    </Principal>
+                    <Dependent Role="ToRole_Kreda_Mekkl">
+                        <PropertyRef Name="Lifnr" />
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZALTERNO_KEREN_SRV_Entities" sap:supported-formats="atom json xlsx" m:IsDefaultEntityContainer="true">
+                <EntitySet sap:content-version="1" Name="KredaSet" sap:updatable="false" sap:creatable="false" sap:pageable="false" sap:deletable="false" EntityType="ZALTERNO_KEREN_SRV.Kreda" />
+                <EntitySet sap:content-version="1" Name="MekklSet" sap:updatable="false" sap:creatable="false" sap:pageable="false" sap:deletable="false" EntityType="ZALTERNO_KEREN_SRV.Mekkl" />
+                <EntitySet sap:content-version="1" Name="VendorDetailsSet" sap:updatable="false" sap:creatable="false" sap:pageable="false" sap:deletable="false" EntityType="ZALTERNO_KEREN_SRV.VendorDetails" />
+                <EntitySet sap:content-version="1" Name="BankDetailsSet" sap:updatable="false" sap:creatable="false" sap:pageable="false" sap:deletable="false" EntityType="ZALTERNO_KEREN_SRV.BankDetails" />
+                <AssociationSet sap:content-version="1" Name="Kreda_BankDetailsSet" sap:updatable="false" sap:creatable="false" sap:deletable="false" Association="ZALTERNO_KEREN_SRV.Kreda_BankDetails">
+                    <End Role="FromRole_Kreda_BankDetails" EntitySet="KredaSet" />
+                    <End Role="ToRole_Kreda_BankDetails" EntitySet="BankDetailsSet" />
+                </AssociationSet>
+                <AssociationSet sap:content-version="1" Name="Kreda_MekklSet" sap:updatable="false" sap:creatable="false" sap:deletable="false" Association="ZALTERNO_KEREN_SRV.Kreda_Mekkl">
+                    <End Role="FromRole_Kreda_Mekkl" EntitySet="KredaSet" />
+                    <End Role="ToRole_Kreda_Mekkl" EntitySet="MekklSet" />
+                </AssociationSet>
+                <AssociationSet sap:content-version="1" Name="Kreda_DetailsSet" sap:updatable="false" sap:creatable="false" sap:deletable="false" Association="ZALTERNO_KEREN_SRV.Kreda_Details">
+                    <End Role="FromRole_Kreda_Details" EntitySet="KredaSet" />
+                    <End Role="ToRole_Kreda_Details" EntitySet="VendorDetailsSet" />
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" href="./sap/ZALTERNO_KEREN_SRV/$metadata" rel="self" />
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" href="./sap/ZALTERNO_KEREN_SRV/$metadata" rel="latest-version" />
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
